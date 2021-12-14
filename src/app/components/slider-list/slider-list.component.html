@@ -1,0 +1,59 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Listado de Sliders</h2>
+</div>
+<div class="container-fluid mt-2">
+    <div class="app-main">
+        <div class="card card-frame">
+            <div class="card-body">
+                <div class="col">
+                    <div class="card">
+                      <!-- Card header -->
+                      <div class="card-header">
+                        <h3 class="mb-0">Listado de sliders</h3>
+                        <p class="text-sm mb-0">
+                          Todas los sliders
+                        </p>
+                      </div>
+                      <div class="table-responsive py-4">
+                        <table class="table table-flush" id="datatable-basic">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>Imagen</th>
+                              <th>slug</th>
+                              <th>Titulo</th>
+                              <th>texto central</th>
+                              <th>texto final</th>
+                              <th>activo</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>slug</th>
+                                <th>Titulo</th>
+                                <th>texto central</th>
+                                <th>texto final</th>
+                                <th>activo</th>
+                            </tr>
+                          </tfoot>
+                          <tbody>
+                            <tr *ngFor="let slider of sliders">
+                              <td><img class="imagenTable" src="{{slider.data.image}}" alt=""> </td>
+                              <td (click)="openDetailSlider(slider)">{{slider.data.slug}}</td>
+                              <td (click)="openDetailSlider(slider)">{{slider.data.titulo}}</td>
+                              <td (click)="openDetailSlider(slider)">{{slider.data.central}}</td>
+                              <td (click)="openDetailSlider(slider)">{{slider.data.final}}</td>
+                              <td *ngIf="slider.data.active === false">inactivo</td>
+                              <td *ngIf="slider.data.active === true">activo</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+

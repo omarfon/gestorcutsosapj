@@ -1,0 +1,67 @@
+<div class="row" *ngIf="edit == false">
+    <div class="col-4">
+        <img src="{{slider.data.image}}" alt="">
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6">
+                <h2>Titulo: {{slider.data.titulo}}</h2>
+            </div>
+            <div class="col-6">
+                <h3>Central: {{slider.data.central}}</h3>
+            </div>
+            <div class="col-6">
+                <h3>Final: {{slider.data.final}}</h3>
+            </div>
+            <div class="col-6">
+                <h3>Slug: {{slider.data.slug}}</h3>
+            </div>
+            <div class="col-6">
+                <div class="col" *ngIf="slider.data.active == true">estado: activo</div>
+                <div class="col" *ngIf="slider.data.active == false">esatado: inactivo</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-primary btn-block" (click)="editSlider()">Editar</button>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="edit == true">
+    <div class="col-4">
+        <img src="{{slider.data.image}}" alt="">
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6 form-group">
+                <input class="form-control" type="text" placeholder="{{slider.data.titulo}}" value="{{slider.data.titulo}}" [(ngModel)]="titulo">
+                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+            </div>
+            <div class="col-6 form-group">
+                <input class="form-control" type="text" placeholder="{{slider.data.central}}" value="{{slider.data.central}}" [(ngModel)]="central">
+                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+            </div>
+            <div class="col-6 form-group">
+                <input class="form-control" type="text" placeholder="{{slider.data.final}}" value="{{slider.data.final}}" [(ngModel)]="final">
+                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="{{slider.data.slug}}" value="{{slider.data.slug}}" [(ngModel)]="slug">
+               <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
+            </div>
+            <div class="col">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="activateSlider()">
+                <label class="form-check-label" for="exampleCheck1">Activar</label>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col"></div>
+            <div class="col">
+                <button class="btn btn-light btn-block" (click)="close()">cancelar</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary btn-block" (click)="saveDataSlider()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

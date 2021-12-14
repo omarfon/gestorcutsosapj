@@ -1,0 +1,183 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Agregar noticia</h2>
+</div>
+<div class="container-fluid mt-4">
+    <div class="app-main">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="guardado == true">
+            <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-inner--text"><strong>Exito!</strong> Genial acabas de guardar una noticia nueva</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorguardado == true">
+            <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
+            <span class="alert-inner--text"><strong>Error!</strong> No se llegó a guardar el post, intenta de nuevo!</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+                <form>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Titulo noticia</label>
+                                                <input class="form-control" type="text" value="Omar Fonseca" id="example-text-input" name="title" [(ngModel)]="title">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Slug</label>
+                                                <input class="form-control" type="text" value="ruta_noticia" id="example-text-input" name="slug" [(ngModel)]="slug">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <label for="example-text-input" class="form-control-label">Agregar Imagen</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="image" (change)="upImage($event)">
+                                                <label class="custom-file-label" for="customFileLang">Agregar imagen</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Resumen</label>
+                                                <textarea class="form-control" type="date" id="resumen" name="resumen" [(ngModel)]="resumen"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Contenido</label>
+                                                <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Fecha noticia</label>
+                                                <input class="form-control" type="date" id="date" name="date" [(ngModel)]="date">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Fecha publicación</label>
+                                                <input class="form-control" type="date" id="datepublic" name="datepublic" [(ngModel)]="datepublic">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Escrita por</label>
+                                                    <input class="form-control" type="text" id="reading" name="reading" [(ngModel)]="reading">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Imagen escritor</label>
+                                                    <input class="form-control" type="text" id="imagereading" name="imagereading" [(ngModel)]="imagereading">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="active" name="active" [(ngModel)]="active">
+                                                    <label class="custom-control-label" for="customCheck1">publicación activa </label>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-block" [disabled]="fullCampos()" (click)="saveNotice()">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="col-12" *ngIf="title">
+                                <div class="card">
+                                    <div class="card-body" >
+                                            <p>{{title}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="slug">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{slug}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="image">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{image}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="resumen">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{resumen}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="contenido">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{contenido}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6"  *ngIf="date">
+                                <div class="card">
+                                    <div class="card-body">
+                                            <p>{{date}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6" *ngIf="datepublic">
+                                    <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{datepublic}}</p>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                <div class="col-6" *ngIf="reading">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{reading}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6" *ngIf="imagereading">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{imagereading}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="active">
+                                <div class="card" >
+                                    <div class="card-body">
+                                            <p>{{active}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</div>
+
+

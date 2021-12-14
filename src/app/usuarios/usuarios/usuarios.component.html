@@ -1,0 +1,70 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Usuarios</h2>
+</div>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Nombres</label>
+                                <input class="form-control" type="text" value="John " id="example-text-input" name="title" [(ngModel)]="nombres">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6 ">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Apellidos Paterno</label>
+                                <input class="form-control" type="text" value="Apellido paterno" id="example-text-input" name="slug" [(ngModel)]="surname1">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Apellidos Materno</label>
+                                <input class="form-control" type="text" value="Apellido materno" id="example-text-input" name="slug" [(ngModel)]="surname2">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Email</label>
+                                <input class="form-control" type="text" value="Email" id="example-text-input" name="slug" [(ngModel)]="email">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Area</label>
+                                <input class="form-control" type="text" value="Email" id="example-text-input" name="slug" [(ngModel)]="area">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Password</label>
+                                <input class="form-control" type="text" value="Email" id="example-text-input" name="slug" [(ngModel)]="password">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6 col-lg-6">
+                            <div>
+                                <button class="btn btn-primary btn-block" (click)="saveUser()">Guardar Usuario</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Usuarios</h3>
+                   <ul>
+                       <li *ngFor="let u of usuarios">
+                           <h2>{{u.data.nombres}} {{u.data.surname1}} {{u.data.surname2}}</h2>
+                           <p class="datos">área: {{u.data.area}} <span>Contraseña: {{u.data.password}}</span></p>
+                       </li>
+                   </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</div>

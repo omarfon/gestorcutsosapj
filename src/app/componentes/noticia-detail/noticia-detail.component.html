@@ -1,0 +1,70 @@
+<div class="row" *ngIf="edit == false">
+    <div class="col-4">
+        <img src="{{notice.data.imagen}}" alt="">
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-5">
+                <h2>Titulo: {{notice.data.title}}</h2>
+            </div>
+            <div class="col-5">
+                <h3>Ruta: {{notice.data.slug}}</h3>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary" (click)="editNotice()">Editar</button>
+            </div>
+        </div>
+        <div class="col-12">
+            <p>Resumen: <span>{{notice.data.resumen}}</span></p>
+            <p>Contenido: <span>{{notice.data.contenido}}</span></p>
+        </div>
+        <div class="row">
+            <div class="col">Escibe: {{notice.data.reading}}</div>
+            <div class="col">Fecha publicación: {{notice.data.datepublic}}</div>
+            <div class="col" *ngIf="notice.data.active == true">estado: activo</div>
+            <div class="col" *ngIf="notice.data.active == false">esatado: inactivo</div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="edit == true">
+    <div class="col-4">
+        <img src="{{notice.data.imagen}}" alt="">
+    </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-6 form-group">
+                <input class="form-control" type="text" placeholder="{{notice.data.title}}" value="{{notice.data.title}}" [(ngModel)]="title">
+                <!-- <h2>Titulo: {{notice.data.title}}</h2> -->
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="{{notice.data.slug}}" value="{{notice.data.slug}}" [(ngModel)]="slug">
+               <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
+            </div>
+        
+        <div class="col-12">
+            <textarea name="resumen"   rows="5" class="form-control" [(ngModel)]="resumen" placeholder="{{notice.data.resumen}}">{{notice.data.resumen}}</textarea>
+            <textarea name="contenido" rows="10" class="form-control" [(ngModel)]="contenido" placeholder="{{notice.data.contenido}}">{{notice.data.resumen}}</textarea>
+        </div>
+        
+            <div class="col">
+                <input class="form-control" type="text" placeholder="{{notice.data.reading}}" [(ngModel)]="reading">
+            </div>
+            <div class="col">
+                <input class="form-control" type="date" placeholder="{{notice.data.datepublic}}" [(ngModel)]="datepublic">
+            </div>
+            <div class="col">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="activateNotice()">
+                <label class="form-check-label" for="exampleCheck1">Activar</label>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col"></div>
+            <div class="col">
+                <button class="btn btn-light btn-block" (click)="close()">cancelar</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary btn-block" (click)="saveDataNotice()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Listado de noticias</h2>
+</div>
+<div class="container-fluid mt-2">
+    <div class="app-main">
+        <div class="card card-frame">
+            <div class="card-body">
+                <div class="col">
+                    <div class="card">
+                      <!-- Card header -->
+                      <div class="card-header">
+                        <h3 class="mb-0">Todas las noticias</h3>
+                      </div>
+                      <div class="table-responsive py-4">
+                        <table class="table table-flush" id="datatable-basic">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>Imagen</th>
+                              <th>Titulo</th>
+                              <th>slug</th>
+                              <th>fecha</th>
+                              <th>fecha publicación</th>
+                              <th>actividad</th>
+                              <th>actualizar</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                              <th>Imagen</th>
+                              <th>Titulo</th>
+                              <th>slug</th>
+                              <th>fecha</th>
+                              <th>fecha publicación</th>
+                              <th>actividad</th>
+                              <th>actualizar</th>
+                            </tr>
+                          </tfoot>
+                          <tbody>
+                            <tr *ngFor="let notice of notices">
+                              <td><img class="imagenLista" src="{{notice.data.imagen}}" alt="" (click)="openDetailNotice(notice)"></td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.title}}</td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.slug}}</td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.date}}</td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.datepublic}}</td>
+                              <td *ngIf="notice.data.active == true">activo</td>
+                              <td *ngIf="notice.data.active == false">inactivo</td>
+                              <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button></td>
+                              <mat-menu #opciones="matMenu" >
+                                <button mat-menu-item *ngIf="notice.data.active == true" (click)="desactivate(notice)">
+                                  <mat-icon>check</mat-icon >
+                                  <span>Desactivar</span>
+                                </button>
+                                <button mat-menu-item *ngIf="notice.data.active == false" (click)="activate(notice)">
+                                  <mat-icon>cancel</mat-icon >
+                                  <span>Activar</span>
+                                </button>
+                              </mat-menu>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+

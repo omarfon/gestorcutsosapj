@@ -1,0 +1,62 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Nosotros</h2>
+</div>
+<div class="container-fluid mt-4">
+    <div class="app-main">
+                <form>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <label for="example-text-input" class="form-control-label" >Agregar Imagen</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagen($event)">
+                                                <label class="custom-file-label" for="customFileLang">Agregar imagen</label>
+                                            </div>
+                                        </div>
+                                        <div class="progress-wrapper col-12">
+                                            <div class="progress-info">
+                                              <div class="progress-percentage">
+                                                <span>{{porcentajeSubida}}%</span>
+                                              </div>
+                                            </div>
+                                            <div class="progress">
+                                              <div class="progress-bar bg-default" role="progressbar" aria-valuenow="porcentajeSubida" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                            </div>
+                                          </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">Contenido</label>
+                                                <textarea class="form-control" type="date" value="John Snow" id="example-text-input" name="contenido" [(ngModel)]="contenido"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-block" (click)="saveDataNosotros()">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="card">
+                                <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12 containerImagen">
+                                                <img src="{{dataNosotros.imagen}}" alt="">
+                                            </div>
+                                            <div class="col-12">
+                                                <p>{{dataNosotros.contenido}}
+                                                </p> 
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</div>

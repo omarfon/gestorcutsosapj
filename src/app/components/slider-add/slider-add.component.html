@@ -1,0 +1,73 @@
+<div class="header bg-primary pt-3 pb-3">
+    <h2 class="text-white ml-5">Agregar Slider</h2>
+</div>
+<div class="container-fluid mt-4">
+    <div class="app-main">
+                <form>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+        
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label" >Titulo slider</label>
+                                                <input class="form-control" type="text" placeholder="Nuevo slider" id="example-text-input" name="titulo" [(ngModel)]="titulo">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label">texto central</label>
+                                                <input class="form-control" type="text" placeholder="texto central" id="example-text-input"  name="central" [(ngModel)]="central">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label" >texto final</label>
+                                                <input class="form-control" type="text" placeholder="Texto final" id="example-text-input" name="final" [(ngModel)]="final">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <div class="form-group">
+                                                <label for="example-text-input" class="form-control-label" >Slug</label>
+                                                <input class="form-control" type="text" placeholder="ruta_pagina" id="example-text-input" name="slug" [(ngModel)]="slug">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                            <label for="example-text-input" class="form-control-label">Agregar Imagen</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="upImage($event)">
+                                                <label class="custom-file-label" for="customFileLang">Agregar imagen</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" (change)="acivateSlider($event)">
+                                                    <label class="custom-control-label" for="customCheck1">publicación activa </label>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-block" (click)="upSlider()">Guardar slider</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="card">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</div>
+
+
