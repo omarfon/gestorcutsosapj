@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdataService } from 'src/app/services/updata.service';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-empresas',
@@ -16,10 +16,38 @@ export class EmpresasComponent implements OnInit {
   }
 
   getAllEmpresas(){
-    this.updateSrv.getEmpresas().subscribe(data => {
-      this.empresas = data;
-      console.log(this.empresas);
+    this.updateSrv.getEmpresas().subscribe((data:any) => {
+      this.empresas = data.map(x => {
+        const reg = x.payload.doc.data();
+        reg.id = x.payload.doc.id;
+        return reg 
+      });
+      console.log(this.empresas, data)
     })
+  }
+
+  activate(r){
+    let data={
+      active: true
+    };
+    const id = r.id
+    console.log(data, id);
+   this.updateSrv.upDateEmpresa(data, id).then(data => {
+    this.getAllEmpresas();
+     Swal.fire({
+      title: 'Actualización Correcta!',
+      text: 'Actualizaste correctamente esta Solicitud',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    })
+   }, err => {
+    Swal.fire({
+      title: 'Error!',
+      text: 'No se ha actualizado esta Solicitud',
+      icon: 'error',
+      confirmButtonText: 'Intentar de nuevo'
+    })
+   })
   }
 
 }

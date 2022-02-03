@@ -23,7 +23,8 @@
                               <th>Titulo</th>
                               <th>texto central</th>
                               <th>texto final</th>
-                              <th>activo</th>
+                              <th>Estado</th>
+                              <th>Editar</th>
                             </tr>
                           </thead>
                           <tfoot>
@@ -33,7 +34,8 @@
                                 <th>Titulo</th>
                                 <th>texto central</th>
                                 <th>texto final</th>
-                                <th>activo</th>
+                                <th>Estado</th>
+                                <th>Editar</th>
                             </tr>
                           </tfoot>
                           <tbody>
@@ -45,6 +47,23 @@
                               <td (click)="openDetailSlider(slider)">{{slider.data.final}}</td>
                               <td *ngIf="slider.data.active === false">inactivo</td>
                               <td *ngIf="slider.data.active === true">activo</td>
+                              <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button></td>
+                              <mat-menu #opciones="matMenu" >
+                                <button mat-menu-item *ngIf="slider.data.active == true" (click)="desactivate(slider)">
+                                  <mat-icon>cancel</mat-icon >
+                                  <span>Desactivar</span>
+                                </button>
+                                <button mat-menu-item *ngIf="slider.data.active == false" (click)="activate(slider)">
+                                  <mat-icon>check</mat-icon >
+                                  <span>Activar</span>
+                                </button>
+                                <button mat-menu-item (click)="eliminateNotice(slider)">
+                                  <mat-icon>delete</mat-icon >
+                                  <span>Eliminar</span>
+                                </button>
+                              </mat-menu>
                             </tr>
                           </tbody>
                         </table>

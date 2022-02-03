@@ -30,6 +30,10 @@ export class UpdataService {
     },{merge:true})
   }
 
+  deleteNotice(id){
+    return this.afs.collection('notices').doc(id).delete();
+  }
+
   saveNostros(data){
     return this.afs.collection('Nosotros').doc('1111').set({
       data
@@ -52,16 +56,32 @@ export class UpdataService {
     },{merge:true})
   }
 
+  deleteSlider(id){
+    return this.afs.collection('Sliders').doc(id).delete();
+  }
+
   getAllSlider(){
     return this.nosotros = this.afs.collection('Sliders').snapshotChanges();
   }
 
   getUneteForm(){
-
+    return this.nosotros = this.afs.collection('formUnete').snapshotChanges();
   }
 
-  getClasesForm(){
+  upDateUnete(data, id){
+    return this.afs.collection('formUnete').doc(id).set({
+      data
+    },{merge:true})
+  }
 
+  geEmpresaForm(){
+    return this.nosotros = this.afs.collection('formEmpresa').snapshotChanges();
+  }
+
+  upDateEmpresa(data, id){
+    return this.afs.collection('formEmpresa').doc(id).set({
+      data
+    },{merge:true})
   }
 
   saveUser(data){
@@ -70,12 +90,24 @@ export class UpdataService {
     }, {merge:true})
   }
 
+  getDataUser(){
+    const datos = JSON.parse(localStorage.getItem('log'));
+    const email = datos.user.email;
+    return this.afs.collection('Users', ref => ref.where('data.email', '==', email)).valueChanges()
+  }
+
   getAllUsers(){
     return this.nosotros = this.afs.collection('Users').snapshotChanges();
   }
 
   getEmpresas(){
-    return this.afs.collection('formEmpresa').valueChanges();
+    return this.afs.collection('formEmpresa').snapshotChanges();
+  }
+
+  createCapana(data){
+    return this.afs.collection('Sliders').doc().set({
+      data
+    },{merge:true})
   }
 
 }

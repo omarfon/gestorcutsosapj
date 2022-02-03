@@ -32,6 +32,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { EscritoresComponent } from './usuarios/escritores/escritores.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DetailSliderComponent } from './components/detail-slider/detail-slider.component';
+import { CampanaAddComponent } from './components/campana-add/campana-add.component';
+import { ListComponent } from './components/list/list.component';
+import { CampanaListComponent } from './components/campana-list/campana-list.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { DetailSliderComponent } from './components/detail-slider/detail-slider.
     UsuariosComponent,
     NoticiaDetailComponent,
     EscritoresComponent,
-    DetailSliderComponent
+    DetailSliderComponent,
+    CampanaAddComponent,
+    ListComponent,
+    CampanaListComponent
   ],
   imports: [
     BrowserModule,

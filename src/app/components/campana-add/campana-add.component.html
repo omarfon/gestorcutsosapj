@@ -1,0 +1,378 @@
+<div class="container-fluid">
+            <div class="row mt-2">
+                <div class="col-3">
+                    <h1>DATOS DE CAMPAÑA</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Escoge Campaña</h3>
+                                    <div class="containerModelos">
+                                        <div class="row">
+                                            <div class="col tipoCampañas">
+                                                <div class="row">
+                                                    <div class="col-12 center icono"  (click)="typeVerano()">
+                                                        <img class="icono" src="assets/icons/app-store.svg" alt="">
+                                                    </div>
+                                                    <div class="col-12 center">
+                                                        <p>Camapaña verano</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col tipoCampañas">
+                                                <div class="row">
+                                                    <div class="col-12 center icono"  (click)="typeOtherCampana()">
+                                                        <img  src="assets/icons/geometry.svg" alt="">
+                                                    </div>
+                                                    <div class="col-12 center">
+                                                        <p>Otra campaña</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div class="divisor"></div>
+                                <div class="col-12">
+                                   <h3>Escoge un titulo</h3>
+                                   <div class="item">
+                                    <input class="input" type="text" placeholder="Titulo Campaña" class="form-control">
+                                </div>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <h3>Escoge una referencia</h3>
+                                    <div class="item">
+                                     <input class="input" type="text" placeholder="Referencia" class="form-control">
+                                 </div>
+                                 </div>
+                                <div class="divisor"></div>
+                                <div class="col-12">
+                                    <h3>Agregar logo Campaña</h3>
+                                    <div  class="custom-fil mt-2">
+                                        <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)">
+                                        </div>
+                                    </div>
+                                 </div>
+                                 <div class="divisor"></div>
+                                <div class="col-12">
+                                    <h3>Campaña Activa</h3>
+                                    <input class="form-check-input" type="checkbox" id="customCheck1" (change)="acivateCampana($event)" [(ngModel)]="active">
+                                    <label class="form-check-label" for="inlineCheckbox1">Activar campaña</label>
+                                </div>
+                                <div class="divisor"></div>
+                                <div class="col-12">
+                                   <button class="btn btn-primary btn-block">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 mt-2">
+                    <div *ngIf="verano == true">
+                        <h1>CAMPAÑA VERANO</h1>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Uno</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control" [(ngModel)]="tituloUno">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control" [(ngModel)]="filtroUno">
+                                                </div>
+                                                <div class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label">Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang"
+                                                            placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)"
+                                                            [(ngModel)]="imagenWebUno">
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label">Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es"
+                                                            (change)="subirImagenMobile($event)" [(ngModel)]="imagenMobilebUno">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Dos</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control" [(ngModel)]="tituloDos">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control" [(ngModel)]="filtroDos">
+                                                </div>
+                                                <div class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label">Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang"
+                                                            placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)"
+                                                            [(ngModel)]="imagenWebDos">
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label">Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es"
+                                                            (change)="subirImagenMobile($event)" [(ngModel)]="imagenMobilebDos">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Tres</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control"  [(ngModel)]="tituloTres">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control" [(ngModel)]="filtroTres">
+                                                </div>
+                                                <div  class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)" [(ngModel)]="imagenWebTres">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)" [(ngModel)]="imagenMobilebTres">
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Cuatro</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control"  [(ngModel)]="tituloCuatro">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control"  [(ngModel)]="filtroCuatro">
+                                                </div>
+                                                <div  class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)" [(ngModel)]="imagenWebCuatro">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)" [(ngModel)]="imagenMobilebCuatro">
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Cinco</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control"  [(ngModel)]="tituloCinco">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control"  [(ngModel)]="filtroCinco">
+                                                </div>
+                                                <div  class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)"  [(ngModel)]="imagenWebCinco">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)"  [(ngModel)]="imagenMobilebCinco">
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Bloque Seis</h3>
+                                            <div class="form">
+                                                <div class="item">
+                                                    <input class="input" type="text" placeholder="Titulo" class="form-control" [(ngModel)]="tituloSeis">
+                                                </div>
+                                                <div class="item mt-2">
+                                                    <input class="input" type="text" placeholder="filtro" class="form-control" [(ngModel)]="filtroSeis">
+                                                </div>
+                                                <div  class="custom-fil mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)" [(ngModel)]="imagenWebSeis">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="custom-file mt-2">
+                                                    <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)" [(ngModel)]="imagenMobilebSeis">
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                    </div>
+                
+                            <div *ngIf="other == true">
+                                <h1>OTRA CAMPAÑA</h1>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h3>Bloque Uno</h3>
+                                                <div class="form">
+                                                    <div class="item">
+                                                        <input class="input" type="text" placeholder="Titulo" class="form-control">
+                                                    </div>
+                                                    <div class="item mt-2">
+                                                        <input class="input" type="text" placeholder="filtro" class="form-control">
+                                                    </div>
+                                                    <div  class="custom-fil mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="custom-file mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)">
+                                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h3>Bloque Dos</h3>
+                                                <div class="form">
+                                                    <div class="item">
+                                                        <input class="input" type="text" placeholder="Titulo" class="form-control">
+                                                    </div>
+                                                    <div class="item mt-2">
+                                                        <input class="input" type="text" placeholder="filtro" class="form-control">
+                                                    </div>
+                                                    <div  class="custom-fil mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="custom-file mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)">
+                                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h3>Bloque Tres</h3>
+                                                <div class="form">
+                                                    <div class="item">
+                                                        <input class="input" type="text" placeholder="Titulo" class="form-control">
+                                                    </div>
+                                                    <div class="item mt-2">
+                                                        <input class="input" type="text" placeholder="filtro" class="form-control">
+                                                    </div>
+                                                    <div  class="custom-fil mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="custom-file mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)">
+                                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h3>Bloque Cuatro</h3>
+                                                <div class="form">
+                                                    <div class="item">
+                                                        <input class="input" type="text" placeholder="Titulo" class="form-control">
+                                                    </div>
+                                                    <div class="item mt-2">
+                                                        <input class="input" type="text" placeholder="filtro" class="form-control">
+                                                    </div>
+                                                    <div  class="custom-fil mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Web</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" placeholder="Agregar Imagen Web" lang="es" (change)="subirImagenWeb($event)">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="custom-file mt-2">
+                                                        <label for="example-text-input" class="form-control-label" >Imagen Mobile</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="subirImagenMobile($event)">
+                                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                      
+                </div>
+    </div>

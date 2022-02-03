@@ -59,6 +59,18 @@
                       <span class="sidenav-normal"> Listar Sliders </span>
                     </a>
                   </li>
+<!--                   <li class="nav-item">
+                    <a [routerLink]="['/campana-add']" class="nav-link">
+                      <span class="sidenav-mini-icon"> AC </span>
+                      <span class="sidenav-normal">Agregar Campana </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a [routerLink]="['/campana-list']" class="nav-link">
+                      <span class="sidenav-mini-icon"> SL </span>
+                      <span class="sidenav-normal"> Listar Campañas </span>
+                    </a>
+                  </li> -->
                 </ul>
               </div>
             </li>
@@ -95,18 +107,6 @@
                     <a [routerLink]="['/usuarios']" class="nav-link">
                       <span class="sidenav-mini-icon"> U </span>
                       <span class="sidenav-normal"> Usuarios </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a [routerLink]="['/accesos']" class="nav-link">
-                      <span class="sidenav-mini-icon"> A </span>
-                      <span class="sidenav-normal"> Accesos </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a [routerLink]="['/escritores']" class="nav-link">
-                      <span class="sidenav-mini-icon"> E </span>
-                      <span class="sidenav-normal"> Escritores </span>
                     </a>
                   </li>
                 </ul>
@@ -154,33 +154,19 @@
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg">
+                    <img alt="Image placeholder" src="../../../assets/avatar.png">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">Omar Fonseca</span>
+                    <span class="mb-0 text-sm  font-weight-bold" *ngIf="dataUser" >{{dataUser[0].data.email}}</span>
+                    <br>
+                    <span class="mb-0 text-sm  font-weight-bold" *ngIf="dataUser" >{{dataUser[0].data.nombres}}</span>
                   </div>
                 </div>
               </a>
               <div class="dropdown-menu  dropdown-menu-right ">
                 <div class="dropdown-header noti-title">
-                  <h6 class="text-overflow m-0">Bienvenido!</h6>
+                  <h6 class="text-overflow m-0" *ngIf="dataUser">Bienvenido {{dataUser[0].data.nombres}}!</h6>
                 </div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-single-02"></i>
-                  <span>My profile</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-calendar-grid-58"></i>
-                  <span>Activity</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-support-16"></i>
-                  <span>Support</span>
-                </a>
                 <div class="dropdown-divider"></div>
                 <a href="#!" class="dropdown-item">
                   <i class="ni ni-user-run"></i>

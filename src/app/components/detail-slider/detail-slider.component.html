@@ -4,25 +4,32 @@
     </div>
     <div class="col-8">
         <div class="row">
-            <div class="col-6">
-                <h2>Titulo: {{slider.data.titulo}}</h2>
+            <div class="col-12">
+                <h2>Titulo: <span>{{slider.data.titulo}}</span></h2>
             </div>
-            <div class="col-6">
-                <h3>Central: {{slider.data.central}}</h3>
+            <div class="col-12">
+                <h3>Central: <span>{{slider.data.central}}</span></h3>
             </div>
-            <div class="col-6">
-                <h3>Final: {{slider.data.final}}</h3>
+            <div class="col-12">
+                <h3>Final: <span>{{slider.data.final}}</span></h3>
             </div>
-            <div class="col-6">
-                <h3>Slug: {{slider.data.slug}}</h3>
+            <div class="col-12">
+                <h3>Slug: <span>{{slider.data.slug}}</span></h3>
             </div>
-            <div class="col-6">
-                <div class="col" *ngIf="slider.data.active == true">estado: activo</div>
-                <div class="col" *ngIf="slider.data.active == false">esatado: inactivo</div>
+            <div class="col-12">
+                <h3>Url interna: <span>{{slider.data.urlinterna}}</span></h3>
             </div>
-        </div>
-        <div class="col-6">
-            <button class="btn btn-primary btn-block" (click)="editSlider()">Editar</button>
+            <div class="col-12">
+                <h3>Url externa: <span>{{slider.data.urlexterna}}</span></h3>
+            </div>
+            <div class="col-12">
+                <h3 class="col" *ngIf="slider.data.active == true">Estado: <span> activo</span></h3>
+                <h3 class="col" *ngIf="slider.data.active == false">Esatado: <span>inactivo</span></h3>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6">
+                <button class="btn btn-primary btn-block" (click)="editSlider()">Editar</button>
+            </div>
         </div>
     </div>
 </div>
@@ -46,6 +53,14 @@
             </div>
             <div class="col-6">
                 <input class="form-control" type="text" placeholder="{{slider.data.slug}}" value="{{slider.data.slug}}" [(ngModel)]="slug">
+               <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="{{slider.data.urlinterna}}" value="{{slider.data.urlinterna}}" [(ngModel)]="urlinterna">
+               <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="{{slider.data.urlexterna}}" value="{{slider.data.urlexterna}}" [(ngModel)]="urlexterna">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
             <div class="col">

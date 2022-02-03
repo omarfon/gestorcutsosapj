@@ -1,4 +1,4 @@
-<div class="header bg-primary pt-3 pb-3">
+<div class="header bg-primary pt-1 pb-1">
     <h2 class="text-white ml-5">Agregar noticia</h2>
 </div>
 <div class="container-fluid mt-4">
@@ -23,50 +23,50 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                        <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Titulo noticia</label>
                                                 <input class="form-control" type="text" value="Omar Fonseca" id="example-text-input" name="title" [(ngModel)]="title">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                        <div class="col-12 col-md-6 col-lg-6 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Slug</label>
                                                 <input class="form-control" type="text" value="ruta_noticia" id="example-text-input" name="slug" [(ngModel)]="slug">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                        <div class="col-12 col-md-6 col-lg-6 mt-1">
                                             <label for="example-text-input" class="form-control-label">Agregar Imagen</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="image" (change)="upImage($event)">
                                                 <label class="custom-file-label" for="customFileLang">Agregar imagen</label>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                        <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Resumen</label>
                                                 <textarea class="form-control" type="date" id="resumen" name="resumen" [(ngModel)]="resumen"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-12 col-lg-12 mt-2">
+                                        <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Contenido</label>
-                                                <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido"></textarea>
+                                                <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido "></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                        <div class="col-6 col-md-6 col-lg-6 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Fecha noticia</label>
                                                 <input class="form-control" type="date" id="date" name="date" [(ngModel)]="date">
                                             </div>
                                         </div>
-                                        <div class="col-6 col-md-6 col-lg-6 mt-2">
+                                        <div class="col-6 col-md-6 col-lg-6 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Fecha publicación</label>
                                                 <input class="form-control" type="date" id="datepublic" name="datepublic" [(ngModel)]="datepublic">
                                             </div>
                                         </div>
-                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-6 col-md-6 col-lg-6 mt-1">
                                             <div class="form-group">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Escrita por</label>
@@ -74,21 +74,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
-                                            <div class="form-group">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Imagen escritor</label>
-                                                    <input class="form-control" type="text" id="imagereading" name="imagereading" [(ngModel)]="imagereading">
-                                                </div>
-                                            </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="home" name="home" [(ngModel)]="home" (change)="homeChange($event)">
+                                                <label class="form-check-label" for="exampleCheck1">publicación activa</label>
+                                              </div>
                                         </div>
-                                        <div class="col-6 col-md-6 col-lg-6 mt-3">
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="active" name="active" [(ngModel)]="active">
-                                                    <label class="custom-control-label" for="customCheck1">publicación activa </label>
-                                                  </div>
-                                            </div>
+                                        <div class="col-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="active" name="active" [(ngModel)]="active" (change)="activeChange($event)">
+                                                <label class="form-check-label" for="exampleCheck1">publicación activa</label>
+                                              </div>
                                         </div>
                                         <div class="col-6 col-md-6 col-lg-6 mt-2">
                                             <div class="form-group">
@@ -132,7 +128,7 @@
                                 <div class="col-12" *ngIf="contenido">
                                 <div class="card" >
                                     <div class="card-body">
-                                            <p>{{contenido}}</p>
+                                            <p>{{contenido | slice:0:200}}</p>
                                         </div>
                                     </div>
                                 </div>

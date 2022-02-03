@@ -1,4 +1,4 @@
-<div class="header bg-primary pt-3 pb-3">
+<div class="header bg-primary pt-1 pb-1">
     <h2 class="text-white ml-5">Listado solicitudes unete</h2>
 </div>
 <div class="container-fluid mt-2">
@@ -6,7 +6,6 @@
         <div class="card card-frame">
             <div class="card-body">
                 <div class="col">
-                    <div class="card">
                       <!-- Card header -->
                       <div class="card-header">
                         <h3 class="mb-0">Listado unete</h3>
@@ -18,37 +17,48 @@
                         <table class="table table-flush" id="datatable-basic">
                           <thead class="thead-light">
                             <tr>
-                              <th>Imagen</th>
-                              <th>Titulo</th>
-                              <th>slug</th>
-                              <th>fecha</th>
-                              <th>fecha publicación</th>
-                              <th>estado</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Fecha</th>
+                              <th>Email</th>
+                              <th>Telefono</th>
+                              <th>Estado</th>
+                              <th>Editar</th>
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
-                              <th>Imagen</th>
-                              <th>Titulo</th>
-                              <th>slug</th>
-                              <th>fecha</th>
-                              <th>fecha publicación</th>
-                              <th>estado</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Fecha</th>
+                              <th>Email</th>
+                              <th>Telefono</th>
+                              <th>Estado</th>
+                              <th>Editar</th>
                             </tr>
                           </tfoot>
                           <tbody>
-                            <tr>
-                              <td>Tiger Nixon</td>
-                              <td>System Architect</td>
-                              <td>Edinburgh</td>
-                              <td>61</td>
-                              <td>2011/04/25</td>
-                              <td>$320,800</td>
+                            <tr *ngFor="let r of registros">
+                              <td>{{r.data.nombre}}</td>
+                              <td>{{r.data.apellidos}}</td>
+                              <td>{{r.data.date.toDate() | date:"dd MMMM hh:mm"}}</td>
+                              <td>{{r.data.email}}</td>
+                              <td>{{r.data.telefono}}</td>
+                              <td *ngIf="r.data.active == false || !r.data.active">Pendiente</td>
+                              <td *ngIf="r.data.active == true">Atendido</td>
+                              <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button></td>
+                              <mat-menu #opciones="matMenu" >
+                                <button mat-menu-item *ngIf="r.data.active == false || !r.data.active" (click)="activate(r)">
+                                  <mat-icon>check</mat-icon >
+                                  <span>Atendido</span>
+                                </button>
+                              </mat-menu>
                             </tr>
                           </tbody>
                         </table>
                       </div>
-                    </div>
                   </div>
             </div>
           </div>

@@ -1,0 +1,29 @@
+img{
+    width:35px;
+}
+.tipoCampañas{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        color:lightslategray;
+        font-size:.7em;
+    }
+
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divisor{
+    border-bottom: .4px solid grey;
+    margin-bottom:20px!important;
+    margin-top:20px;
+    width:100%;
+}
+.icono:hover{
+    box-shadow: 2px 2px grey;
+    border:2px solid grey
+}

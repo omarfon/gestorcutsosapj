@@ -1,4 +1,4 @@
-<div class="header bg-primary pt-3 pb-3">
+<div class="header bg-primary pt-1 pb-1">
     <h2 class="text-white ml-5">Listado de noticias</h2>
 </div>
 <div class="container-fluid mt-2">
@@ -49,12 +49,16 @@
                               </button></td>
                               <mat-menu #opciones="matMenu" >
                                 <button mat-menu-item *ngIf="notice.data.active == true" (click)="desactivate(notice)">
-                                  <mat-icon>check</mat-icon >
+                                  <mat-icon>cancel</mat-icon >
                                   <span>Desactivar</span>
                                 </button>
                                 <button mat-menu-item *ngIf="notice.data.active == false" (click)="activate(notice)">
-                                  <mat-icon>cancel</mat-icon >
+                                  <mat-icon>check</mat-icon >
                                   <span>Activar</span>
+                                </button>
+                                <button mat-menu-item (click)="eliminateNotice(notice)">
+                                  <mat-icon>delete</mat-icon >
+                                  <span>Eliminar</span>
                                 </button>
                               </mat-menu>
                             </tr>

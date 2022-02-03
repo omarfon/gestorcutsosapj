@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class LoginComponent implements OnInit {
   public email:string;
   public password:string
-  public textError;
+  public textError = false;
   constructor(public router: Router,
               public authfs: AngularFireAuth) { }
 
@@ -25,10 +25,13 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home'])
     }).catch(err =>{
       console.error(err);
-      this.textError = err;
-      alert(err)
+      this.textError = true;
+      setTimeout(() => {
+          this.textError = false
+      }, 7000);
     })
   }
+
 
   
 }

@@ -16,6 +16,8 @@ export class DetailSliderComponent implements OnInit {
   public central;
   public final;
   public slug;
+  public urlinterna = "";
+  public urlexterna = "";
   constructor(public updataSrv: UpdataService, public dialogRef:MatDialogRef<DetailSliderComponent>) { }
 
   ngOnInit(): void {
@@ -25,6 +27,8 @@ export class DetailSliderComponent implements OnInit {
     this.central = this.slider.data.central;
     this.final = this.slider.data.final;
     this.active = this.slider.data.active;
+    this.urlinterna = this.slider.data.urlinterna;
+    this.urlexterna = this.slider.data.urlexterna;
     console.log(this.slider)
   }
 
@@ -42,7 +46,9 @@ export class DetailSliderComponent implements OnInit {
       central: this.central,
       final: this.final,
       slug:this.slug,
-      active: this.active
+      active: this.active,
+      urlinterna: this.urlinterna,
+      urlexterna: this.urlexterna
     }
     const id = this.slider.id;
     console.log(data, id);

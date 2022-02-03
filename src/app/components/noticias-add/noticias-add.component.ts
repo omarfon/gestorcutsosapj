@@ -19,6 +19,7 @@ export class NoticiasAddComponent implements OnInit {
   public reading: string = "";
   public imagereading: string = "";
   public active: boolean = false;
+  public home: boolean = false;
   public urlImagen;
   public porcentajeSubida:number = 0;
   public guardado: boolean = false;
@@ -40,6 +41,7 @@ export class NoticiasAddComponent implements OnInit {
       reading: this.reading,
       imagereading: this.imagereading,
       active:this.active,
+      home: this.home,
       imagen:this.urlImagen
     }
     console.log(data);
@@ -54,6 +56,7 @@ export class NoticiasAddComponent implements OnInit {
       this.datepublic = "";
       this.reading = "";
       this.active = false;
+      this.home = false;
       this.image = "";
     }).catch(err =>{
       alert(err)
@@ -87,6 +90,18 @@ export class NoticiasAddComponent implements OnInit {
       console.log(porcentaje)
       this.porcentajeSubida = porcentaje;
     })
+  }
+
+  homeChange(event){
+    console.log(event);
+    this.home = true;
+    this.home = !this.home;
+  }
+
+  activeChange(event){
+    console.log(event);
+    this.active = true;
+    this.active = !this.active;
   }
   
 

@@ -1,6 +1,15 @@
 <div class="main-content">
     <!-- Header -->
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+<!--     <div class="alert alert-danger" role="alert" >
+     Las credenciales no son correctas, intentalo, nuevamente.
+    </div> -->
+    <div class="alert alert-warning alert-dismissible fade show  errorLogin" role="alert" *ngIf="textError == true">
+      <strong>Error de Logueo! </strong>  Las credenciales no son correctas, intentalo, nuevamente.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="header bg py-7 py-lg-8 pt-lg-9">
       <div class="container">
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
@@ -43,24 +52,10 @@
                     <input class="form-control" placeholder="Password" type="password" name="password" [(ngModel)]="password">
                   </div>
                 </div>
-               <!--  <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember me</span>
-                  </label>
-                </div> -->
                 <div class="text-center">
                   <button type="button" class="btn btn-primary my-4" (click)="sigNiWithEmailPassword()">Login</button>
                 </div>
               </form>
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-6">
-              <a href="#" class="text-light"><small>Olvide mi contraseña</small></a>
-            </div>
-            <div class="col-6 text-right">
-              <a href="#" class="text-light"><small>Crear una cuenta</small></a>
             </div>
           </div>
         </div>

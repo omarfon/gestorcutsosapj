@@ -13,6 +13,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { AccesosComponent } from './usuarios/accesos/accesos.component';
 import { UsuariosComponent } from './usuarios/usuarios/usuarios.component';
 import { EscritoresComponent } from './usuarios/escritores/escritores.component';
+import { CampanaListComponent } from './components/campana-list/campana-list.component';
+import { CampanaAddComponent } from './components/campana-add/campana-add.component';
+
 
 const routes: Routes = [
   {
@@ -62,6 +65,24 @@ const routes: Routes = [
     children: [
       {
         path: '', component: SliderListComponent
+      }
+    ]
+  },
+  {
+    path: 'campana-add',
+    component: LayoutMainComponent,
+    children: [
+      {
+        path: '', component: CampanaAddComponent
+      }
+    ]
+  },
+  {
+    path: 'campana-list',
+    component: LayoutMainComponent,
+    children: [
+      {
+        path: '', component: CampanaListComponent
       }
     ]
   },

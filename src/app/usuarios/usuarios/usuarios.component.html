@@ -59,6 +59,7 @@
                    <ul>
                        <li *ngFor="let u of usuarios">
                            <h2>{{u.data.nombres}} {{u.data.surname1}} {{u.data.surname2}}</h2>
+                           <h5 class="datos">Email: {{u.data.email}}</h5> 
                            <p class="datos">área: {{u.data.area}} <span>Contraseña: {{u.data.password}}</span></p>
                        </li>
                    </ul>

@@ -88,4 +88,10 @@ export class NoticiasListComponent implements OnInit {
    })
   }
 
+  eliminateNotice(notice){
+    console.log(notice);
+    let id = notice.id;
+    this.updateSrv.deleteNotice(id); 
+  }
+
 }

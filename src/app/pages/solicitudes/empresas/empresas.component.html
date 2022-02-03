@@ -1,4 +1,4 @@
-<div class="header bg-primary pt-3 pb-3">
+<div class="header bg-primary pt-1 pb-1">
     <h2 class="text-white ml-5">Listado cursos a empresas</h2>
 </div>
 <div class="container-fluid mt-2">
@@ -18,32 +18,50 @@
                         <table class="table table-flush" id="datatable-basic">
                           <thead class="thead-light">
                             <tr>
-                              <th>Imagen</th>
-                              <th>Titulo</th>
-                              <th>slug</th>
-                              <th>fecha</th>
-                              <th>fecha publicación</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>cargo</th>
+                              <th>Empresa</th>
+                              <th>Email</th>
+                              <th>Telefono</th>
+                              <th>requerimiento</th>
                               <th>Estado</th>
+                              <th>Editar</th>
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
-                              <th>Imagen</th>
-                              <th>Titulo</th>
-                              <th>slug</th>
-                              <th>fecha</th>
-                              <th>fecha publicación</th>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>cargo</th>
+                              <th>Empresa</th>
+                              <th>Email</th>
+                              <th>Telefono</th>
+                              <th>requerimiento</th>
                               <th>Estado</th>
+                              <th>Editar</th>
                             </tr>
                           </tfoot>
                           <tbody>
-                            <tr>
-                              <td>Tiger Nixon</td>
-                              <td>System Architect</td>
-                              <td>Edinburgh</td>
-                              <td>61</td>
-                              <td>2011/04/25</td>
-                              <td>$320,800</td>
+                            <tr *ngFor="let e of empresas">
+                              <td>{{e.data.names}}</td>
+                              <td>{{e.data.surname1}} {{e.data.surname2}}</td>
+                              <td>{{e.data.cargo}}</td>
+                              <td>{{e.data.empresa}}</td>
+                              <td>{{e.data.email}}</td>
+                              <td>{{e.data.phone}}</td>
+                              <td>{{e.data.requerimientos}}</td>
+                              <td *ngIf="e.data.active == false || !e.data.active">Pendiente</td>
+                              <td *ngIf="e.data.active == true">Atendido</td>
+                              <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button></td>
+                              <mat-menu #opciones="matMenu" >
+                                <button mat-menu-item *ngIf="e.data.active == false || !e.data.active" (click)="activate(e)">
+                                  <mat-icon>check</mat-icon >
+                                  <span>Atendido</span>
+                                </button>
+                              </mat-menu>
                             </tr>
                           </tbody>
                         </table>

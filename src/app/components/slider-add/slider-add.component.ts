@@ -15,6 +15,8 @@ export class SliderAddComponent implements OnInit {
   public central;
   public final;
   public slug;
+  public urlinterna = "";
+  public urlexterna = "";
   public active: boolean = false;
   constructor(public storagefs: AngularFireStorage, public updtSrv: UpdataService) { }
 
@@ -28,6 +30,8 @@ export class SliderAddComponent implements OnInit {
       final:this.final,
       slug:this.slug,
       image:this.urlImagen,
+      urlinterna : this.urlinterna,
+      urlexterna : this.urlexterna,
       active:this.active
     }
     console.log('data para slider:',data);
@@ -39,6 +43,8 @@ export class SliderAddComponent implements OnInit {
         this.final = "";
         this.slug = "";
         this.urlImagen ="";
+        this.urlinterna = "";
+        this.urlexterna = "";
         this.active = false;
     }).catch(err => {
       console.log(err);
