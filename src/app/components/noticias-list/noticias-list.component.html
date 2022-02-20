@@ -21,6 +21,7 @@
                               <th>fecha</th>
                               <th>fecha publicación</th>
                               <th>actividad</th>
+                              <th>visible home</th>
                               <th>actualizar</th>
                             </tr>
                           </thead>
@@ -32,6 +33,7 @@
                               <th>fecha</th>
                               <th>fecha publicación</th>
                               <th>actividad</th>
+                              <th>visible home</th>
                               <th>actualizar</th>
                             </tr>
                           </tfoot>
@@ -44,6 +46,8 @@
                               <td (click)="openDetailNotice(notice)">{{notice.data.datepublic}}</td>
                               <td *ngIf="notice.data.active == true">activo</td>
                               <td *ngIf="notice.data.active == false">inactivo</td>
+                              <td *ngIf="notice.data.home == true">activo</td>
+                              <td *ngIf="notice.data.home == false">inactivo</td>
                               <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
                                 <mat-icon>more_vert</mat-icon>
                               </button></td>
@@ -55,6 +59,14 @@
                                 <button mat-menu-item *ngIf="notice.data.active == false" (click)="activate(notice)">
                                   <mat-icon>check</mat-icon >
                                   <span>Activar</span>
+                                </button>
+                                <button mat-menu-item *ngIf="notice.data.home == true" (click)="desactivateHome(notice)">
+                                  <mat-icon>cancel</mat-icon >
+                                  <span>Desactivar Home</span>
+                                </button>
+                                <button mat-menu-item *ngIf="notice.data.home == false" (click)="activateHome(notice)">
+                                  <mat-icon>check</mat-icon >
+                                  <span>Activar Home</span>
                                 </button>
                                 <button mat-menu-item (click)="eliminateNotice(notice)">
                                   <mat-icon>delete</mat-icon >

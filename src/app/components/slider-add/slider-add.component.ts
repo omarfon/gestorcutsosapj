@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { UpdataService } from 'src/app/services/updata.service';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-slider-add',
@@ -18,11 +18,13 @@ export class SliderAddComponent implements OnInit {
   public urlinterna = "";
   public urlexterna = "";
   public active: boolean = false;
+  public validado;
   constructor(public storagefs: AngularFireStorage, public updtSrv: UpdataService) { }
 
   ngOnInit(): void {
   }
 
+ 
   upSlider(){
     let data ={
       titulo:this.titulo,
@@ -35,7 +37,8 @@ export class SliderAddComponent implements OnInit {
       active:this.active
     }
     console.log('data para slider:',data);
-    this.updtSrv.saveSlider(data).then(resp => {
+    if(this.titulo && this.central && this.urlImagen){
+      this.updtSrv.saveSlider(data).then(resp => {
         console.log(resp)
         alert('slider guardado');
         this.titulo = "";
@@ -47,9 +50,24 @@ export class SliderAddComponent implements OnInit {
         this.urlexterna = "";
         this.active = false;
     }).catch(err => {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Hubo un error de creación de  este Slider',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo'
+      })
       console.log(err);
       alert('error de creación')
     })
+    }else{
+      Swal.fire({
+        title: 'Error!',
+        text: 'Llenar los inputs obligatorios.',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo'
+      })
+    }
+  
   }
 
   acivateSlider(event){

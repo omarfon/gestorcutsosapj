@@ -64,9 +64,57 @@ export class NoticiasListComponent implements OnInit {
    })
   }
 
+  activateHome(notice){
+    let data={
+      home: true
+    };
+    const id = notice.id
+    console.log(data, id);
+   this.updateSrv.saveNotice(data, id).then(data => {
+    this.getAllNotices();
+     Swal.fire({
+      title: 'Actualización Correcta!',
+      text: 'Actualizaste correctamente esta noticia',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    })
+   }, err => {
+    Swal.fire({
+      title: 'Error!',
+      text: 'No se ha actualizado esta noticia',
+      icon: 'error',
+      confirmButtonText: 'Intentar de nuevo'
+    })
+   })
+  }
+
   desactivate(notice){
     let data={
       active: false
+    };
+    const id = notice.id
+    console.log(data, id);
+   this.updateSrv.saveNotice(data, id).then(data => {
+    this.getAllNotices();
+     Swal.fire({
+      title: 'Actualización Correcta!',
+      text: 'Actualizaste correctamente esta noticia',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    })
+   }, err => {
+    Swal.fire({
+      title: 'Error!',
+      text: 'No se ha actualizado esta noticia',
+      icon: 'error',
+      confirmButtonText: 'Intentar de nuevo'
+    })
+   })
+  }
+
+  desactivateHome(notice){
+    let data={
+      home: false
     };
     const id = notice.id
     console.log(data, id);

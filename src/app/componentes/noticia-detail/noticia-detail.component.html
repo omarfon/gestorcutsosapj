@@ -23,7 +23,10 @@
             <div class="col">Fecha publicación: {{notice.data.datepublic}}</div>
             <div class="col" *ngIf="notice.data.active == true">estado: activo</div>
             <div class="col" *ngIf="notice.data.active == false">esatado: inactivo</div>
+            <div class="col" *ngIf="notice.data.home == true">home: activo</div>
+            <div class="col" *ngIf="notice.data.home == false">home: inactivo</div>
         </div>
+        
     </div>
 </div>
 <div class="row" *ngIf="edit == true">
