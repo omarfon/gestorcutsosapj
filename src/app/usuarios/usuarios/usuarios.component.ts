@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdataService } from './../../services/updata.service';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-usuarios',
@@ -47,6 +47,26 @@ export class UsuariosComponent implements OnInit {
     }, err => {
       alert(err)
       console.log(err);
+    })
+  }
+
+  deleteUser(data){
+    this.updateSrv.deleteUser(data).then(data => {
+      console.log(data);
+      Swal.fire({
+        title: 'Permisos Eliminados!',
+        text: 'Se han eliminado los permisos satisfatoriamente.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
+    }, err => {
+      console.log(err);
+      Swal.fire({
+        title: 'Error!',
+        text: 'No se ha eliminado los permisos, intentarlo nuevamente',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo'
+      })
     })
   }
 

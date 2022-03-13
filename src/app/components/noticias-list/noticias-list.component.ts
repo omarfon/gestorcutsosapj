@@ -110,7 +110,7 @@ export class NoticiasListComponent implements OnInit {
       confirmButtonText: 'Intentar de nuevo'
     })
    })
-  }
+  }                                                                                               
 
   desactivateHome(notice){
     let data={

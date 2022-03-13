@@ -36,19 +36,24 @@
     <div class="col-8">
         <div class="row">
             <div class="col-6 form-group">
-                <input class="form-control" type="text" placeholder="{{notice.data.title}}" value="{{notice.data.title}}" [(ngModel)]="title">
+                <label for="">Titulo</label>
+                <input class="form-control" type="text" placeholder="{{notice.data.title}}" value="{{notice.data.title}}" [(ngModel)]="title" maxlength="90">
                 <!-- <h2>Titulo: {{notice.data.title}}</h2> -->
             </div>
             <div class="col-6">
+                <label for="">Slug </label>
                 <input class="form-control" type="text" placeholder="{{notice.data.slug}}" value="{{notice.data.slug}}" [(ngModel)]="slug">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
         
         <div class="col-12">
-            <textarea name="resumen"   rows="5" class="form-control" [(ngModel)]="resumen" placeholder="{{notice.data.resumen}}">{{notice.data.resumen}}</textarea>
-            <textarea name="contenido" rows="10" class="form-control" [(ngModel)]="contenido" placeholder="{{notice.data.contenido}}">{{notice.data.resumen}}</textarea>
+            <label for="">Resumen caracteres 140 / {{resumencontador}}</label>
+            <textarea name="resumen"   rows="2" class="form-control" [(ngModel)]="resumen" placeholder="{{notice.data.resumen}}" maxlength="140" (keyup)="onresumen($event)">{{notice.data.resumen}}</textarea>
         </div>
-        
+        <div class="col-12">
+            <label for="">Contenido</label>
+            <textarea name="contenido" rows="5" class="form-control" [(ngModel)]="contenido" value="{{notice.data.contenido}}">{{notice.data.contenido}}</textarea>
+        </div>
             <div class="col">
                 <input class="form-control" type="text" placeholder="{{notice.data.reading}}" [(ngModel)]="reading">
             </div>

@@ -23,6 +23,7 @@
                               <th>Email</th>
                               <th>Telefono</th>
                               <th>Estado</th>
+                              <th>cv</th>
                               <th>Editar</th>
                             </tr>
                           </thead>
@@ -34,6 +35,7 @@
                               <th>Email</th>
                               <th>Telefono</th>
                               <th>Estado</th>
+                              <th>cv</th>
                               <th>Editar</th>
                             </tr>
                           </tfoot>
@@ -46,6 +48,14 @@
                               <td>{{r.data.telefono}}</td>
                               <td *ngIf="r.data.active == false || !r.data.active">Pendiente</td>
                               <td *ngIf="r.data.active == true">Atendido</td>
+                              <th *ngIf="r.data.file">
+                                <a href="{{r.data.file}}" target="_blank" download="{{r.data.apellidos}}">
+                                  CV
+                                </a>
+                              </th>
+                              <th *ngIf="!r.data.file">
+                                SIN CV
+                              </th>
                               <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
                                 <mat-icon>more_vert</mat-icon>
                               </button></td>

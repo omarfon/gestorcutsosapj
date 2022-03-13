@@ -24,6 +24,7 @@ export class NoticiasAddComponent implements OnInit {
   public porcentajeSubida:number = 0;
   public guardado: boolean = false;
   public errorguardado: boolean = false;
+  public resumencontador = 0;
   constructor(public afsSrv:UpdataService, public storagefs: AngularFireStorage) { }
 
   ngOnInit(): void {
@@ -104,5 +105,8 @@ export class NoticiasAddComponent implements OnInit {
     this.active = !this.active;
   }
   
+  onresumen(event){
+    this.resumencontador = event.target.value.length;
+  }
 
 }

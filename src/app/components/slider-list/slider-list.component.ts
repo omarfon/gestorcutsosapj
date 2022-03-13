@@ -25,7 +25,7 @@ export class SliderListComponent implements OnInit {
         slid.id = x.payload.doc.id;
         return slid 
       });
-      console.log(data)
+      console.log(data, this.sliders)
     })
   }
 
@@ -82,10 +82,41 @@ openDetailSlider(slider){
    })
   }
 
-  eliminateNotice(slider){
+  eliminateSlider(slider){
     let id = slider.id;
     console.log(id, slider);
-    /* this.updateSrv.deleteSlider(id) */
+     this.updateSrv.deleteSlider(id).then(data => {
+      Swal.fire({
+        title:'Slider Eliminado',
+        text: 'Eliminaste correctamente este slider',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
+     }, err => {
+      Swal.fire({
+        title: 'Error!',
+        text: 'No se ha eliminado este slider',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo'
+      })
+     });
+
   }
 
+  cambiOrden(f,i){
+    console.log(f,i)
+    const id = f.id;
+    const indice = i+1;
+    this.updateSrv.ordenSlider(id, indice).then(data => {
+        console.log(data)
+    }) 
+  }
+
+  editOrden(f){
+    const id = f.id;
+    const indice = 0
+    this.updateSrv.ordenSlider(id, indice ).then(data =>{
+      console.log(data)
+    })
+  }
 }

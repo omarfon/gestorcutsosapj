@@ -29,12 +29,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 import { EscritoresComponent } from './usuarios/escritores/escritores.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DetailSliderComponent } from './components/detail-slider/detail-slider.component';
 import { CampanaAddComponent } from './components/campana-add/campana-add.component';
 import { ListComponent } from './components/list/list.component';
 import { CampanaListComponent } from './components/campana-list/campana-list.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +76,8 @@ import { CampanaListComponent } from './components/campana-list/campana-list.com
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatSelectModule,
+    AngularEditorModule,
     SweetAlert2Module
   ],
   providers: [],

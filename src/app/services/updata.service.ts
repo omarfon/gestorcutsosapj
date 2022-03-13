@@ -64,6 +64,14 @@ export class UpdataService {
     return this.nosotros = this.afs.collection('Sliders').snapshotChanges();
   }
 
+  ordenSlider(id, i){
+    return this.afs.collection('Sliders').doc(id).set({
+      data:{
+        order:i
+      }
+    },{merge:true})
+  }
+
   getUneteForm(){
     return this.nosotros = this.afs.collection('formUnete').snapshotChanges();
   }
@@ -88,6 +96,11 @@ export class UpdataService {
     return this.afs.collection('Users').doc().set({
       data
     }, {merge:true})
+  }
+
+  deleteUser(data){
+    const id = data.id;
+    return this.afs.collection('Users').doc(id).delete()
   }
 
   getDataUser(){

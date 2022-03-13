@@ -44,14 +44,15 @@
                                         </div>
                                         <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Resumen</label>
-                                                <textarea class="form-control" type="date" id="resumen" name="resumen" [(ngModel)]="resumen" maxlength="140"></textarea>
+                                                <label for="example-text-input" class="form-control-label">Resumen caracteres 140 / {{resumencontador}}</label>
+                                                <textarea class="form-control" type="date" id="resumen" name="resumen" (keyup)="onresumen($event)" [(ngModel)]="resumen" maxlength="140"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Contenido</label>
-                                                <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido "></textarea>
+                                                <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido "></textarea> 
+                                               
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6 col-lg-6 mt-1">
@@ -121,7 +122,8 @@
                                 <div class="col-12" *ngIf="resumen">
                                 <div class="card" >
                                     <div class="card-body">
-                                            <p>{{resumen}}</p>
+                                        <label for="">caracteres max 140/ {{resumencontador}}</label>
+                                            <p >{{resumen}}</p>
                                         </div>
                                     </div>
                                 </div>
