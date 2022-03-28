@@ -42,8 +42,8 @@
                               <td><img class="imagenLista" src="{{notice.data.imagen}}" alt="" (click)="openDetailNotice(notice)"></td>
                               <td (click)="openDetailNotice(notice)">{{notice.data.title}}</td>
                               <td (click)="openDetailNotice(notice)">{{notice.data.slug}}</td>
-                              <td (click)="openDetailNotice(notice)">{{notice.data.date}}</td>
-                              <td (click)="openDetailNotice(notice)">{{notice.data.datepublic}}</td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.date | date:"dd/MM/YYYY"}}</td>
+                              <td (click)="openDetailNotice(notice)">{{notice.data.datepublic  | date:"dd/MM/YYYY"}}</td>
                               <td *ngIf="notice.data.active == true">activo</td>
                               <td *ngIf="notice.data.active == false">inactivo</td>
                               <td *ngIf="notice.data.home == true">activo</td>

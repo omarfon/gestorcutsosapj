@@ -50,9 +50,26 @@
             <label for="">Resumen caracteres 140 / {{resumencontador}}</label>
             <textarea name="resumen"   rows="2" class="form-control" [(ngModel)]="resumen" placeholder="{{notice.data.resumen}}" maxlength="140" (keyup)="onresumen($event)">{{notice.data.resumen}}</textarea>
         </div>
-        <div class="col-12">
-            <label for="">Contenido</label>
-            <textarea name="contenido" rows="5" class="form-control" [(ngModel)]="contenido" value="{{notice.data.contenido}}">{{notice.data.contenido}}</textarea>
+        <div class="col-12  mt-1 mb-4">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <label for="example-text-input" class="form-control-label">Contenido</label>
+                        <ngx-editor-menu [editor]="editor" style="width: 100%!important;"> </ngx-editor-menu>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <ngx-editor
+                            style="width:100%!important;height:60px!important;"
+                            id="contenido"
+                            name="contenido"
+                          [editor]="editor"
+                          [(ngModel)]="contenido"
+                          [disabled]="false"
+                          placeholder="{{notice.data.contenido}}">
+                        </ngx-editor>
+                    </div>
+                </div>
+
+           <!--  <textarea name="contenido" rows="5" class="form-control" [(ngModel)]="contenido" value="{{notice.data.contenido}}">{{notice.data.contenido}}</textarea> -->
         </div>
             <div class="col">
                 <input class="form-control" type="text" placeholder="{{notice.data.reading}}" [(ngModel)]="reading">

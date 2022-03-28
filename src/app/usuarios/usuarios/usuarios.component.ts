@@ -42,8 +42,16 @@ export class UsuariosComponent implements OnInit {
       area: this.area,
       password: this.password
     }
+    const email = this.email;
+    const password = this.password;
+    this.updateSrv.createUser(email, password);
     this.updateSrv.saveUser(data).then(data => {
-      console.log(data)
+      Swal.fire({
+        title: 'Usuario Creado!!',
+        text: 'Se ha creado el usuario satisfactoriamente.',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
     }, err => {
       alert(err)
       console.log(err);

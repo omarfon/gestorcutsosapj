@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class UpdataService {
   public nosotros;
   public notice;
   public slider;
-  constructor(public afs: AngularFirestore) { }
+  constructor(public afs: AngularFirestore, public authfs: AngularFireAuth) { }
 
   saveNotices(data){
     return this.afs.collection('notices').doc().set({
@@ -121,6 +122,13 @@ export class UpdataService {
     return this.afs.collection('Sliders').doc().set({
       data
     },{merge:true})
+  }
+
+  createUser(email, password){
+    this.authfs.createUserWithEmailAndPassword(email, password).
+    then(resp => {
+      return resp
+    })
   }
 
 }

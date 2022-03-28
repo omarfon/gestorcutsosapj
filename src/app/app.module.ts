@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import { EscritoresComponent } from './usuarios/escritores/escritores.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -37,7 +38,8 @@ import { CampanaAddComponent } from './components/campana-add/campana-add.compon
 import { ListComponent } from './components/list/list.component';
 import { CampanaListComponent } from './components/campana-list/campana-list.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-
+import { NgxEditorModule } from 'ngx-editor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -76,8 +78,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatTabsModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     AngularEditorModule,
+    NgxEditorModule,
     SweetAlert2Module
   ],
   providers: [],

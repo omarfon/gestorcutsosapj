@@ -28,6 +28,7 @@ export class NoticiasListComponent implements OnInit {
         notice.id = x.payload.doc.id;
         return notice;
       });
+      this.notices = this.notices.sort((a:any, b:any) => <any> new Date(a.data.date) - <any> new Date(b.data.date))
       console.log('todas las noticias:',this.notices);
     }, err => {
       alert(err)

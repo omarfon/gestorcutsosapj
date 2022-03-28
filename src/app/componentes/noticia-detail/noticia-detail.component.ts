@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { UpdataService } from 'src/app/services/updata.service';
 import Swal from 'sweetalert2'
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-
+import { Editor } from 'ngx-editor';
 
 @Component({
   selector: 'app-noticia-detail',
@@ -23,11 +23,14 @@ export class NoticiaDetailComponent implements OnInit {
   public contenido;
   public active: boolean = false;
   public resumencontador = 0;
+  editor: Editor;
+  html: '';
   constructor(public updateSrv: UpdataService, public dialogRef: MatDialogRef<NoticiaDetailComponent>) {
     
    }
 
   ngOnInit(): void {
+    this.editor = new Editor();
     this.notice = this.updateSrv.notice;
     this.title = this.notice.data.title;
     this.slug = this.notice.data.slug;
@@ -38,6 +41,10 @@ export class NoticiaDetailComponent implements OnInit {
     this.contenido = this.notice.data.contenido;
     this.resumencontador = this.notice.data.resumen.length;
     console.log(this.notice);
+  }
+  
+  ngOnDestroy(): void {
+    this.editor.destroy();
   }
 
   editNotice(){

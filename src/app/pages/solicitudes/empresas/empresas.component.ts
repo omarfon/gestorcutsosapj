@@ -22,6 +22,7 @@ export class EmpresasComponent implements OnInit {
         reg.id = x.payload.doc.id;
         return reg 
       });
+      this.empresas = this.empresas.sort((a:any,b:any) => <any>new Date(a.data.fechaSolicitud) - <any>new Date(b.data.fechaSolicitud))
       console.log(this.empresas, data)
     })
   }

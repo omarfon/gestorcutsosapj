@@ -2,77 +2,139 @@
     <h2 class="text-white ml-5">Listado solicitudes unete</h2>
 </div>
 <div class="container-fluid mt-2">
-    <div class="app-main">
-        <div class="card card-frame">
-            <div class="card-body">
-                <div class="col">
-                      <!-- Card header -->
-                      <div class="card-header">
-                        <h3 class="mb-0">Listado unete</h3>
-                        <p class="text-sm mb-0">
-                          todas las solicitudes
-                        </p>
-                      </div>
-                      <div class="table-responsive py-4">
-                        <table class="table table-flush" id="datatable-basic">
-                          <thead class="thead-light">
-                            <tr>
-                              <th>Nombre</th>
-                              <th>Apellidos</th>
-                              <th>Fecha</th>
-                              <th>Email</th>
-                              <th>Telefono</th>
-                              <th>Estado</th>
-                              <th>cv</th>
-                              <th>Editar</th>
-                            </tr>
-                          </thead>
-                          <tfoot>
-                            <tr>
-                              <th>Nombre</th>
-                              <th>Apellidos</th>
-                              <th>Fecha</th>
-                              <th>Email</th>
-                              <th>Telefono</th>
-                              <th>Estado</th>
-                              <th>cv</th>
-                              <th>Editar</th>
-                            </tr>
-                          </tfoot>
-                          <tbody>
-                            <tr *ngFor="let r of registros">
-                              <td>{{r.data.nombre}}</td>
-                              <td>{{r.data.apellidos}}</td>
-                              <td>{{r.data.date.toDate() | date:"dd MMMM hh:mm"}}</td>
-                              <td>{{r.data.email}}</td>
-                              <td>{{r.data.telefono}}</td>
-                              <td *ngIf="r.data.active == false || !r.data.active">Pendiente</td>
-                              <td *ngIf="r.data.active == true">Atendido</td>
-                              <th *ngIf="r.data.file">
-                                <a href="{{r.data.file}}" target="_blank" download="{{r.data.apellidos}}">
-                                  CV
-                                </a>
-                              </th>
-                              <th *ngIf="!r.data.file">
-                                SIN CV
-                              </th>
-                              <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
-                                <mat-icon>more_vert</mat-icon>
-                              </button></td>
-                              <mat-menu #opciones="matMenu" >
-                                <button mat-menu-item *ngIf="r.data.active == false || !r.data.active" (click)="activate(r)">
-                                  <mat-icon>check</mat-icon >
-                                  <span>Atendido</span>
-                                </button>
-                              </mat-menu>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                  </div>
-            </div>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="PENDIENTES"><div class="app-main">
+      <div class="card card-frame">
+          <div class="card-body">
+              <div class="col">
+                    <!-- Card header -->
+                    <div class="card-header">
+                      <h3 class="mb-0">Listado unete</h3>
+                      <p class="text-sm mb-0">
+                        todas las solicitudes
+                      </p>
+                    </div>
+                    <div class="table-responsive py-4">
+                      <table class="table table-flush" id="datatable-basic">
+                        <thead class="thead-light">
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Fecha</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th>cv</th>
+                            <th>Editar</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Fecha</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th>cv</th>
+                            <th>Editar</th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <tr *ngFor="let r of registros">
+                            <td>{{r.data.names}}</td>
+                            <td>{{r.data.surname}}</td>
+                            <td>{{r.data.date.toDate() | date:"dd MMMM hh:mm"}}</td>
+                            <td>{{r.data.email}}</td>
+                            <td>{{r.data.phone}}</td>
+                            <td *ngIf="r.data.active == false || !r.data.active">Pendiente</td>
+                            <td *ngIf="r.data.active == true">Atendido</td>
+                            <th *ngIf="r.data.file">
+                              <a href="{{r.data.file}}" target="_blank" download="{{r.data.apellidos}}">
+                                CV
+                              </a>
+                            </th>
+                            <th *ngIf="!r.data.file">
+                              SIN CV
+                            </th>
+                            <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
+                              <mat-icon>more_vert</mat-icon>
+                            </button></td>
+                            <mat-menu #opciones="matMenu" >
+                              <button mat-menu-item *ngIf="r.data.active == false || !r.data.active" (click)="activate(r)">
+                                <mat-icon>check</mat-icon >
+                                <span>Atendido</span>
+                              </button>
+                            </mat-menu>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
           </div>
-    </div>
+        </div>
+  </div></mat-tab>
+    <mat-tab label="ATENDIDAS">
+      <div class="card card-frame">
+        <div class="card-body">
+            <div class="col">
+                  <!-- Card header -->
+                  <div class="card-header">
+                    <h3 class="mb-0">Listado unete</h3>
+                    <p class="text-sm mb-0">
+                      todas las solicitudes
+                    </p>
+                  </div>
+                  <div class="table-responsive py-4">
+                    <table class="table table-flush" id="datatable-basic">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th>Fecha</th>
+                          <th>Email</th>
+                          <th>Telefono</th>
+                          <th>Estado</th>
+                          <th>cv</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Apellidos</th>
+                          <th>Fecha</th>
+                          <th>Email</th>
+                          <th>Telefono</th>
+                          <th>Estado</th>
+                          <th>cv</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        <tr *ngFor="let r of atendidas">
+                          <td>{{r.data.names}}</td>
+                          <td>{{r.data.surname}}</td>
+                          <td>{{r.data.date.toDate() | date:"dd MMMM hh:mm"}}</td>
+                          <td>{{r.data.email}}</td>
+                          <td>{{r.data.phone}}</td>
+                          <td *ngIf="r.data.active == false || !r.data.active">Pendiente</td>
+                          <td *ngIf="r.data.active == true">Atendido</td>
+                          <th *ngIf="r.data.file">
+                            <a href="{{r.data.file}}" target="_blank" download="{{r.data.apellidos}}">
+                              CV
+                            </a>
+                          </th>
+                          <th *ngIf="!r.data.file">
+                            SIN CV
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
 

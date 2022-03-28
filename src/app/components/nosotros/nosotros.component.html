@@ -10,6 +10,14 @@
                                 <div class="card-body">
                                     <h3>Aqui puedes cambiar el contenido actual de la página NOSOTROS.puedes cambiar todo el contenido o parte de el.</h3>
                                     <div class="row">
+                                        <div class="row center top20" *ngIf="carga == true" style="text-align: center;margin-left: 320px;">
+                                            <div class="col-12 center" >
+                                              <mat-spinner [color]="color" [diameter]="60" style="margin-left: 120px;"></mat-spinner>
+                                            </div>
+                                            <div class="col-12 center2" style="margin-right: 20px;">
+                                              <p style="color: black;">Subiendo Imagen...</p> 
+                                            </div>
+                                          </div>
                                         <div class="col-12 col-md-12 col-lg-12 mt-5">
                                             <label for="example-text-input" class="form-control-label" >Agregar Imagen</label>
                                             <div class="custom-file">
@@ -23,9 +31,10 @@
                                                 <textarea class="form-control" type="date" value="John Snow" id="example-text-input" name="contenido" [(ngModel)]="contenido"></textarea>
                                             </div>
                                         </div>
+                                        <div class="col-6"></div>
                                         <div class="col-6 col-md-6 col-lg-6 mt-2">
                                             <div class="form-group">
-                                                <button class="btn btn-primary btn-block" (click)="saveDataNosotros()">Cambiar contenido</button>
+                                                <button class="btn btn-primary btn-block" (click)="saveDataNosotros()" [disabled]="!disabled">Cambiar contenido</button>
                                             </div>
                                         </div>
                                     </div>

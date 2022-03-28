@@ -29,6 +29,7 @@
                                                 <input class="form-control" type="text" value="Omar Fonseca" id="example-text-input" name="title" [(ngModel)]="title" maxlength="90">
                                             </div>
                                         </div>
+                                      
                                         <div class="col-12 col-md-6 col-lg-6 mt-1">
                                             <div class="form-group">
                                                 <label for="example-text-input" class="form-control-label">Slug</label>
@@ -48,11 +49,32 @@
                                                 <textarea class="form-control" type="date" id="resumen" name="resumen" (keyup)="onresumen($event)" [(ngModel)]="resumen" maxlength="140"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-12 col-lg-12 mt-1">
+<!--                                         <div class="col-12 col-md-12 col-lg-12 mt-1">
                                             <div class="form-group">
-                                                <label for="example-text-input" class="form-control-label">Contenido</label>
+                                               
                                                 <textarea class="form-control" type="date" id="contenido" name="contenido" [(ngModel)]="contenido "></textarea> 
                                                
+                                            </div>
+                                        </div> -->
+                                        <div class="col-12 mt-1 mb-4">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12 col-lg-12">
+                                                    <label for="example-text-input" class="form-control-label">Contenido</label>
+                                                    <ngx-editor-menu [editor]="editor" style="width: 100%!important;"> </ngx-editor-menu>
+                                                
+                                                </div>
+                                                <div class="col-12 col-md-12 col-lg-12">
+                                                    <ngx-editor
+                                                    style="width: 100%!important;"
+                                                    id="contenido"
+                                                    name="contenido"
+                                                      [editor]="editor"
+                                                      [(ngModel)]="contenido"
+                                                      [disabled]="false"
+                                                      [placeholder]="'Escribe el contenido...'"
+                                                    >
+                                                </ngx-editor>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6 col-lg-6 mt-1">

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 })
 export class UneteComponent implements OnInit {
   public registros;
+  public atendidas;
   constructor(public updateSrv: UpdataService) { }
 
   ngOnInit(): void {
@@ -22,10 +23,17 @@ export class UneteComponent implements OnInit {
         reg.id = x.payload.doc.id;
         return reg 
       });
-      console.log(this.registros)
+      const atendidos = this.registros.filter(x => x.data.active == true);
+      const pendientes = this.registros.filter(x => !x.data.active);
+      this.registros = pendientes;
+      console.log('atendidos:',atendidos,'pendientes=>', pendientes, 'this.registros:',this.registros);
+      this.atendidas = atendidos.sort((a ,b) => a.data.date - b.data.date);
+     this.registros = this.registros.sort((a,b) =>a.data.date - b.data.date); 
+    /*   console.log(this.registros) */
     })
   }
 
+  
   activate(r){
     let data={
       active: true

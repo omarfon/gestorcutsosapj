@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdataService } from './../../services/updata.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
+import { Editor } from 'ngx-editor';
 
 @Component({
   selector: 'app-noticias-add',
@@ -25,9 +25,17 @@ export class NoticiasAddComponent implements OnInit {
   public guardado: boolean = false;
   public errorguardado: boolean = false;
   public resumencontador = 0;
+
+  editor: Editor;
+  html: '';
   constructor(public afsSrv:UpdataService, public storagefs: AngularFireStorage) { }
 
   ngOnInit(): void {
+    this.editor = new Editor();
+  }
+
+  ngOnDestroy(): void {
+    this.editor.destroy();
   }
 
   saveNotice(){

@@ -23,7 +23,8 @@
                               <th>cargo</th>
                               <th>Empresa</th>
                               <th>Email</th>
-                              <th>Telefono</th>
+                              <th>Teléfono</th>
+                              <th>Fecha</th>
                               <th>requerimiento</th>
                               <th>Estado</th>
                               <th>Editar</th>
@@ -36,7 +37,8 @@
                               <th>cargo</th>
                               <th>Empresa</th>
                               <th>Email</th>
-                              <th>Telefono</th>
+                              <th>Teléfono</th>
+                              <th>Fecha</th>
                               <th>requerimiento</th>
                               <th>Estado</th>
                               <th>Editar</th>
@@ -50,6 +52,8 @@
                               <td>{{e.data.empresa}}</td>
                               <td>{{e.data.email}}</td>
                               <td>{{e.data.phone}}</td>
+                              <td *ngIf="e.data.fechaSolicitud">{{e.data.fechaSolicitud.toDate() | date:"dd/MM/yyyy h:mm"}}</td>
+                              <td *ngIf="!e.data.fechaSolicitud">Sin fecha</td>
                               <td>{{e.data.requerimientos}}</td>
                               <td *ngIf="e.data.active == false || !e.data.active">Pendiente</td>
                               <td *ngIf="e.data.active == true">Atendido</td>
