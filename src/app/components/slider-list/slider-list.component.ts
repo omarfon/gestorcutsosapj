@@ -104,17 +104,17 @@ openDetailSlider(slider){
   }
 
   cambiOrden(f,i){
-    console.log(f,i)
     const id = f.id;
     const indice = i+1;
+    console.log(f,i, indice)
     this.updateSrv.ordenSlider(id, indice).then(data => {
-        console.log(data)
+        console.log("registro")
     }) 
   }
 
   editOrden(f){
     const id = f.id;
-    const indice = 0
+    const indice = null;
     this.updateSrv.ordenSlider(id, indice ).then(data =>{
       console.log(data)
     })

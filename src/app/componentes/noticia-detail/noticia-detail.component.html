@@ -16,7 +16,7 @@
         </div>
         <div class="col-12">
             <p>Resumen: <span>{{notice.data.resumen}}</span></p>
-            <p>Contenido: <span>{{notice.data.contenido}}</span></p>
+            <p [innerHtml]="notice.data.contenido">Contenido: <span>{{notice.data.contenido}}</span></p>
         </div>
         <div class="row">
             <div class="col">Escibe: {{notice.data.reading}}</div>

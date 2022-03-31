@@ -62,9 +62,11 @@ export class NoticiaDetailComponent implements OnInit {
       resumen: this.resumen,
       reading:this.reading,
       datepublic:this.datepublic,
+      contenido:this.contenido,
       active:this.active
     };
     const id = this.notice.id
+    console.log(this.notice.id, data)
     console.log(data, id);
    this.updateSrv.saveNotice(data, id).then(data => {
      this.dialogRef.close();
