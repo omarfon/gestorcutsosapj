@@ -17,12 +17,13 @@ export class EmpresasComponent implements OnInit {
 
   getAllEmpresas(){
     this.updateSrv.getEmpresas().subscribe((data:any) => {
-      this.empresas = data.map(x => {
+      const empresas = data.map(x => {
         const reg = x.payload.doc.data();
         reg.id = x.payload.doc.id;
         return reg 
       });
-      this.empresas = this.empresas.sort((a:any,b:any) => <any>new Date(a.data.fechaSolicitud) - <any>new Date(b.data.fechaSolicitud))
+      console.log('empresas:',empresas)
+      this.empresas = empresas.sort((a:any,b:any) => (b.data.fechaSolicitud) - (a.data.fechaSolicitud))
       console.log(this.empresas, data)
     })
   }

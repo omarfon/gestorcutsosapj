@@ -27,8 +27,8 @@ export class UneteComponent implements OnInit {
       const pendientes = this.registros.filter(x => !x.data.active);
       this.registros = pendientes;
       console.log('atendidos:',atendidos,'pendientes=>', pendientes, 'this.registros:',this.registros);
-      this.atendidas = atendidos.sort((a ,b) => a.data.date - b.data.date);
-     this.registros = this.registros.sort((a,b) =>a.data.date - b.data.date); 
+      this.atendidas = atendidos.sort((a ,b) => b.data.date - a.data.date);
+     this.registros = this.registros.sort((a,b) =>b.data.date - a.data.date); 
     /*   console.log(this.registros) */
     })
   }

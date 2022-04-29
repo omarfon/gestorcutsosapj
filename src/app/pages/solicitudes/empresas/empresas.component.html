@@ -54,7 +54,7 @@
                               <td>{{e.data.phone}}</td>
                               <td *ngIf="e.data.fechaSolicitud">{{e.data.fechaSolicitud.toDate() | date:"dd/MM/yyyy h:mm"}}</td>
                               <td *ngIf="!e.data.fechaSolicitud">Sin fecha</td>
-                              <td>{{e.data.requerimientos}}</td>
+                              <td>{{e.data.requerimientos | slice:0:200 }}</td>
                               <td *ngIf="e.data.active == false || !e.data.active">Pendiente</td>
                               <td *ngIf="e.data.active == true">Atendido</td>
                               <td><button mat-icon-button [matMenuTriggerFor]="opciones" aria-label="Example icon-button with a menu">
