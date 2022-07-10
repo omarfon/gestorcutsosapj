@@ -1,5 +1,5 @@
-<div class="row" *ngIf="edit == false">
-    <div class="col-4">
+<div class="row" *ngIf="edit == false" style="width:700px; position:relative;right:0">
+    <div class="col-3">
         <img src="{{slider.data.image}}" alt="">
     </div>
     <div class="col-8">
@@ -33,34 +33,37 @@
         </div>
     </div>
 </div>
-<div class="row" *ngIf="edit == true">
-    <div class="col-4">
+<div class="row" *ngIf="edit == true" style="width:700px; position:relative;right:0">
+    <div class="col-3">
         <img src="{{slider.data.image}}" alt="">
     </div>
     <div class="col-8">
         <div class="row">
             <div class="col-6 form-group">
-                <input class="form-control" type="text" placeholder="{{slider.data.titulo}}" value="{{slider.data.titulo}}" [(ngModel)]="titulo">
-                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+              <label>Titulo</label>
+                <input class="form-control" type="text" value="{{slider.data.titulo}}" [(ngModel)]="titulo">
             </div>
             <div class="col-6 form-group">
-                <input class="form-control" type="text" placeholder="{{slider.data.central}}" value="{{slider.data.central}}" [(ngModel)]="central">
-                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+              <label>Central</label>
+                <input class="form-control" type="text" value="{{slider.data.central}}" [(ngModel)]="central">
             </div>
             <div class="col-6 form-group">
-                <input class="form-control" type="text" placeholder="{{slider.data.final}}" value="{{slider.data.final}}" [(ngModel)]="final">
-                <!-- <h2>Titulo: {{slider.data.title}}</h2> -->
+              <label>Final</label>
+                <input class="form-control" type="text" value="{{slider.data.final}}" [(ngModel)]="final">
             </div>
             <div class="col-6">
-                <input class="form-control" type="text" placeholder="{{slider.data.slug}}" value="{{slider.data.slug}}" [(ngModel)]="slug">
+              <label>Slug</label>
+                <input class="form-control" type="text" value="{{slider.data.slug}}" [(ngModel)]="slug">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
             <div class="col-6">
-                <input class="form-control" type="text" placeholder="{{slider.data.urlinterna}}" value="{{slider.data.urlinterna}}" [(ngModel)]="urlinterna">
+              <label>Url interna</label>
+                <input class="form-control" type="text" value="{{slider.data.urlinterna}}" [(ngModel)]="urlinterna">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
             <div class="col-6">
-                <input class="form-control" type="text" placeholder="{{slider.data.urlexterna}}" value="{{slider.data.urlexterna}}" [(ngModel)]="urlexterna">
+              <label>Url externa</label>
+                <input class="form-control" type="text"  value="{{slider.data.urlexterna}}" [(ngModel)]="urlexterna">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
             <div class="col">
