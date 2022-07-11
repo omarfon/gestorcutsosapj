@@ -1,5 +1,5 @@
-<div class="row" *ngIf="edit == false">
-    <div class="col-4">
+<div class="row" *ngIf="edit == false"  style="width:700px; position:relative;right:0">
+    <div class="col-3">
         <img src="{{notice.data.imagen}}" alt="">
     </div>
     <div class="col-8">
@@ -26,11 +26,11 @@
             <div class="col" *ngIf="notice.data.home == true">home: activo</div>
             <div class="col" *ngIf="notice.data.home == false">home: inactivo</div>
         </div>
-        
+
     </div>
 </div>
-<div class="row" *ngIf="edit == true">
-    <div class="col-4">
+<div class="row" *ngIf="edit == true"  style="width:700px; position:relative;right:0">
+    <div class="col-3">
         <img src="{{notice.data.imagen}}" alt="">
     </div>
     <div class="col-8">
@@ -45,7 +45,7 @@
                 <input class="form-control" type="text" placeholder="{{notice.data.slug}}" value="{{notice.data.slug}}" [(ngModel)]="slug">
                <!--  <h3>Ruta: {{notice.data.slug}}</h3> -->
             </div>
-        
+
         <div class="col-12">
             <label for="">Resumen caracteres 140 / {{resumencontador}}</label>
             <textarea name="resumen"   rows="2" class="form-control" [(ngModel)]="resumen" placeholder="{{notice.data.resumen}}" maxlength="140" (keyup)="onresumen($event)">{{notice.data.resumen}}</textarea>
