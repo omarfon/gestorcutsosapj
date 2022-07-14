@@ -43,19 +43,19 @@ var Layout = (function() {
         $('body').find('.backdrop').remove();
 
         // Store the sidenav state in a cookie session
-        Cookies.set('sidenav-state', 'unpinned');
+        Cookies.set('sidenav-state', 'pinned');
     }
 
     // Set sidenav state from cookie
 
     var $sidenavState = Cookies.get('sidenav-state') ? Cookies.get('sidenav-state') : 'pinned';
 
-    if($(window).width() > 1200) {
+    if($(window).width() > 1000) {
         if($sidenavState == 'pinned') {
             pinSidenav()
         }
 
-        if(Cookies.get('sidenav-state') == 'unpinned') {
+        if(Cookies.get('sidenav-state') == 'pinned') {
             unpinSidenav()
         }
 
@@ -66,7 +66,7 @@ var Layout = (function() {
         })
     }
 
-    if($(window).width() < 1200){
+    if($(window).width() < 1400){
       $('body').removeClass('g-sidenav-hide').addClass('g-sidenav-hidden');
       $('body').removeClass('g-sidenav-show');
       $(window).resize(function() {
@@ -152,7 +152,7 @@ var Layout = (function() {
 
     // Make the body full screen size if it has not enough content inside
     $(window).on('load resize', function() {
-        if($('body').height() < 800) {
+        if($('body').height() < 900) {
             $('body').css('min-height', '100vh');
             $('#footer-main').addClass('footer-auto-bottom')
         }
@@ -613,7 +613,7 @@ var NavbarCollapse = (function() {
 				 $('body').removeClass('nav-open');
 					navbar_menu_visible = 0;
 					$('.bodyClick').remove();
-					
+
 			 });
 
 		 $('body').addClass('nav-open');
@@ -1512,77 +1512,77 @@ if($('[data-toggle="widget-calendar"]')[0]) {
         defaultDate: '2018-12-01',
         editable: true,
         events: [
-            
+
             {
                 title: 'Call with Dave',
                 start: '2018-11-18',
                 end: '2018-11-18',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Lunch meeting',
                 start: '2018-11-21',
                 end: '2018-11-22',
                 className: 'bg-orange'
             },
-            
+
             {
                 title: 'All day conference',
                 start: '2018-11-29',
                 end: '2018-11-29',
                 className: 'bg-green'
             },
-            
+
             {
                 title: 'Meeting with Mary',
                 start: '2018-12-01',
                 end: '2018-12-01',
                 className: 'bg-blue'
             },
-            
+
             {
                 title: 'Winter Hackaton',
                 start: '2018-12-03',
                 end: '2018-12-03',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Digital event',
                 start: '2018-12-07',
                 end: '2018-12-09',
                 className: 'bg-warning'
             },
-            
+
             {
                 title: 'Marketing event',
                 start: '2018-12-10',
                 end: '2018-12-10',
                 className: 'bg-purple'
             },
-            
+
             {
                 title: 'Dinner with Family',
                 start: '2018-12-19',
                 end: '2018-12-19',
                 className: 'bg-red'
             },
-            
+
             {
                 title: 'Black Friday',
                 start: '2018-12-23',
                 end: '2018-12-23',
                 className: 'bg-blue'
             },
-            
+
             {
                 title: 'Cyber Week',
                 start: '2018-12-02',
                 end: '2018-12-02',
                 className: 'bg-yellow'
             },
-            
+
         ]
     });
 
@@ -1942,7 +1942,7 @@ var Fullcalendar = (function() {
 		// Calendar events
 
 		var events = [
-			
+
             {
 				id: 1,
 				title: 'Call with Dave',
@@ -1951,7 +1951,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 2,
 				title: 'Lunch meeting',
@@ -1960,7 +1960,7 @@ var Fullcalendar = (function() {
 				className: 'bg-orange',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 3,
 				title: 'All day conference',
@@ -1969,7 +1969,7 @@ var Fullcalendar = (function() {
 				className: 'bg-green',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 4,
 				title: 'Meeting with Mary',
@@ -1978,7 +1978,7 @@ var Fullcalendar = (function() {
 				className: 'bg-blue',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 5,
 				title: 'Winter Hackaton',
@@ -1987,7 +1987,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 6,
 				title: 'Digital event',
@@ -1996,7 +1996,7 @@ var Fullcalendar = (function() {
 				className: 'bg-warning',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 7,
 				title: 'Marketing event',
@@ -2005,7 +2005,7 @@ var Fullcalendar = (function() {
 				className: 'bg-purple',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 8,
 				title: 'Dinner with Family',
@@ -2014,7 +2014,7 @@ var Fullcalendar = (function() {
 				className: 'bg-red',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 9,
 				title: 'Black Friday',
@@ -2023,7 +2023,7 @@ var Fullcalendar = (function() {
 				className: 'bg-blue',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
             {
 				id: 10,
 				title: 'Cyber Week',
@@ -2032,7 +2032,7 @@ var Fullcalendar = (function() {
 				className: 'bg-yellow',
 				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
             },
-            
+
 		],
 
 
