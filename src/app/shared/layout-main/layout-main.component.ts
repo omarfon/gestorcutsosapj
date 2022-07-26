@@ -21,5 +21,4 @@ export class LayoutMainComponent implements OnInit {
         console.log(this.dataUser);
     })
   }
-
 }
